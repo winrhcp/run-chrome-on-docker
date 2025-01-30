@@ -54,7 +54,7 @@ if [ "$(docker ps -q -f name=browser)" ]; then
     show "The Chromium Docker container is already running."
 else
     show "Running Chromium Docker Container..."
-    docker run -d --name browser -e TITLE=VPSCHROME -e DISPLAY=:1 -e PUID=1000 -e PGID=1000 -e CUSTOM_USER="$USERNAME" -e PASSWORD="$PASSWORD" -e LANGUAGE=en_US.UTF-8 -v "$HOME/chromium/config:/config" -p 3200:3000 -p 3201:3001 --shm-size="1gb" --restart unless-stopped lscr.io/linuxserver/chromium:latest
+    docker run -d --name browser -e TITLE=VPSCHROME -e DISPLAY=:1 -e PUID=1000 -e PGID=1000 -e CUSTOM_USER="$USERNAME" -e PASSWORD="$PASSWORD" -e LANGUAGE=en_US.UTF-8 -v "$HOME/chromium/config:/config" -p 3210:3000 -p 3211:3001 --shm-size="1gb" --restart unless-stopped lscr.io/linuxserver/chromium:latest
     if [ $? -eq 0 ]; then
         show "Chromium Docker container started successfully."
     else
@@ -62,7 +62,7 @@ else
     fi
 fi
 
-show "Click on this http://$IP:3200/ or https://$IP:3201/ to run the browser externally"
+show "Click on this http://$IP:3210/ or https://$IP:3211/ to run the browser externally"
 show "Input this username: $USERNAME in the browser"
 show "Input this password: $PASSWORD in the browser"
 show "Make sure to copy these credentials in order to access the browser externally. You can also get your this browser's credentials from $CREDENTIALS_FILE"
